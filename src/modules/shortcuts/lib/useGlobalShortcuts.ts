@@ -17,11 +17,11 @@ export function useGlobalShortcuts(
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      const { handlers, options } = latest.current;
+      const { handlers: hs, options: opts } = latest.current;
       for (const s of SHORTCUTS) {
         if (!s.match(e)) continue;
-        if (options?.isDisabled?.(s.id, e)) return;
-        const h = handlers[s.id];
+        if (opts?.isDisabled?.(s.id, e)) return;
+        const h = hs[s.id];
         if (!h) return;
         e.preventDefault();
         e.stopImmediatePropagation();

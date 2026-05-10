@@ -30,7 +30,7 @@ export async function openPty(
   cwd?: string,
 ): Promise<PtySession> {
   const channel = new Channel<PtyEvent>();
-  channel.onmessage = (event) => {
+  channel.onmessage = (event) => { // oxlint-disable-line unicorn/prefer-add-event-listener -- Tauri Channel uses onmessage
     switch (event.type) {
       case "data":
         handlers.onData(decodeBase64(event.data));

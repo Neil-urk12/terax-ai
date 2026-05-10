@@ -28,6 +28,7 @@ type Options = {
 // Matches dev-server-style local URLs (vite, next dev, webpack, …). Anchors
 // on a word boundary so we don't catch substrings of longer paths.
 const LOCAL_URL_RE =
+  // eslint-disable-next-line no-control-regex
   /\bhttps?:\/\/(?:localhost|127\.0\.0\.1|0\.0\.0\.0)(?::\d{1,5})?(?:\/[^\s\x1b]*)?/g;
 
 export function useTerminalSession({
